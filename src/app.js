@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () =>{
       ratesObject: {},
       selectedRate: null,
       selectedCurrency: null,
-      baseNumber: 1
+      baseNumber: 1,
+      conversionType: ""
     },
     mounted(){
       this.getRates()

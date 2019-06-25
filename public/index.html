@@ -20,13 +20,17 @@
         <option v-for="(value, name) in ratesObject" :value="name">{{name}}</option>
       </select>
       <br>
-      <label for="base_number">Enter a numeric value for currency:</label>
+      <label for="base_number">Enter a numeric value:</label>
       <input type="number" id="base_number" v-model.number="baseNumber">
+      <br>
+      <input type="radio" id="to-euros" value="toEuros" v-model="conversionType">
+      <label for="to-euros">Convert to Euros</label>
+      <br>
+      <input type="radio" id="from-euros" value="fromEuros" v-model="conversionType">
+      <label for="from-euros">Convert from Euros</label>
 
-      
-
-      <p v-if="selectedCurrency">Converting from {{selectedCurrency}} to Euros gives €{{fromEuros}}</p>
-      <p v-if="selectedCurrency">Converting from Euros to selected currency gives {{toEuros}} {{selectedCurrency}}</p>
+      <p v-if="conversionType === 'toEuros'">Converting from {{selectedCurrency}} to Euros gives €{{fromEuros}}</p>
+      <p v-if="conversionType === 'fromEuros'">Converting from Euros to selected currency gives {{toEuros}} {{selectedCurrency}}</p>
 
     </div>
   </body>
