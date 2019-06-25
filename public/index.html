@@ -16,15 +16,17 @@
       </ul> -->
 
       <label for="currency_select">Select a Currency</label>
-      <select id="currency_select" v-model="selectedRate">
-        <option v-for="(value, name) in ratesObject" :value="value">{{name}}</option>
+      <select id="currency_select" v-model="selectedCurrency">
+        <option v-for="(value, name) in ratesObject" :value="name">{{name}}</option>
       </select>
       <br>
       <label for="base_number">Enter a numeric value for currency:</label>
       <input type="number" id="base_number" v-model.number="baseNumber">
 
-      <p v-if="selectedRate">Converting from selected currency to Euros gives €{{fromEuros}}</p>
-      <p v-if="selectedRate">Converting from Euros to selected currency gives {{toEuros}}</p>
+      
+
+      <p v-if="selectedCurrency">Converting from {{selectedCurrency}} to Euros gives €{{fromEuros}}</p>
+      <p v-if="selectedCurrency">Converting from Euros to selected currency gives {{toEuros}} {{selectedCurrency}}</p>
 
     </div>
   </body>

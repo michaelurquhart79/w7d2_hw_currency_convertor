@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     data: {
       ratesObject: {},
       selectedRate: null,
+      selectedCurrency: null,
       baseNumber: 1
     },
     mounted(){
@@ -14,13 +15,13 @@ document.addEventListener('DOMContentLoaded', () =>{
     },
     computed: {
       toEuros: function(){
-        return (this.baseNumber * this.selectedRate).toFixed(2);
+        return (this.baseNumber * this.rateForSelectedCurrency).toFixed(2);
       },
       fromEuros: function(){
-        return (this.baseNumber / this.selectedRate).toFixed(2);
+        return (this.baseNumber / this.rateForSelectedCurrency).toFixed(2);
       },
-      getRate: function() {
-        return this.ratesObject["AUD"];
+      rateForSelectedCurrency: function() {
+        return this.ratesObject[this.selectedCurrency];
       }
     },
     methods: {
